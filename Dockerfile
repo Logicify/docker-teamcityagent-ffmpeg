@@ -45,6 +45,7 @@ ENV MAVEN_OPTS -Xmx512m -Xss256k -XX:+UseCompressedOops
 
 RUN yum install -y docker && yum clean all
 ENV DOCKER_AVAILABLE=1
+RUN pip install docker-compose maestro-ng
 
 # ------------------------------------------------------------------------
 
