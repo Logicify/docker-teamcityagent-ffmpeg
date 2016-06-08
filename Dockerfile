@@ -13,9 +13,10 @@ RUN curl -LO http://download.jetbrains.com/teamcity/TeamCity-$TEAMCITY_VERSION.w
  && unzip -qq TeamCity-$TEAMCITY_VERSION.war -d /tmp/teamcity \
  && unzip -qq /tmp/teamcity/update/buildAgent.zip -d /srv/teamcity-agent
 
-COPY start-agent.sh /srv/teamcity-agent/bin/
+COPY start-agent.sh /srv/
 
 RUN chmod +x /srv/teamcity-agent/bin/*.sh \
+ && chmod +x /srv/*.sh \
  && mv /srv/teamcity-agent/conf/buildAgent.dist.properties /srv/teamcity-agent/conf/buildAgent.properties \
 
  && rm -f TeamCity-$TEAMCITY_VERSION.war \
@@ -53,4 +54,4 @@ EXPOSE ${AGENT_PORT}
 VOLUME /srv/teamcity-agent/conf
 USER app
 
-CMD ["/srv/teamcity-agent/bin/start-agent.sh"]
+CMD ["/srv/start-agent.sh"]
