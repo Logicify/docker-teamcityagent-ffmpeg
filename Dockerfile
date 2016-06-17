@@ -1,6 +1,7 @@
 FROM logicify/ffmpeg:2.7.1
 
-RUN yum install -y python-dev python-pip gcc make gcc-c++ \
+RUN yum -y update \ 
+ && yum install -y python-dev python-pip gcc make gcc-c++ \
  && yum install -y libpng libjpeg ImageMagick GraphicsMagick \
  && yum clean all
 
