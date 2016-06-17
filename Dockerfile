@@ -45,7 +45,7 @@ ENV MAVEN_OPTS -Xmx512m -Xss256k -XX:+UseCompressedOops
 
 # ------------------------------------------------------------------------ docker
 
-RUN yum install -y docker python-devel gcc && yum clean all \
+RUN yum install -y docker-client python-devel gcc && yum clean all \
     && pip install docker-compose maestro-ng
 ENV DOCKER_AVAILABLE=1
 
